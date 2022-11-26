@@ -1,0 +1,490 @@
+{
+	"compiler": {
+		"version": "0.8.4+commit.c7e474f2"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "contract ERC20",
+						"name": "_erc20",
+						"type": "address"
+					},
+					{
+						"internalType": "contract ERC721",
+						"name": "_erc721",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "seller",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "CancelOrder",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "seller",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "previousPrice",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					}
+				],
+				"name": "ChangePrice",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "buyer",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "seller",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					}
+				],
+				"name": "Deal",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "seller",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					}
+				],
+				"name": "NewOrder",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_price",
+						"type": "uint256"
+					}
+				],
+				"name": "buy",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "cancelOrder",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_price",
+						"type": "uint256"
+					}
+				],
+				"name": "changePrice",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "erc20",
+				"outputs": [
+					{
+						"internalType": "contract ERC20",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "erc721",
+				"outputs": [
+					{
+						"internalType": "contract ERC721",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getOrderLength",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "idToOrderIndex",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "isListed",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_operator",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_seller",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_data",
+						"type": "bytes"
+					}
+				],
+				"name": "onERC721Received",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "orderOfId",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "seller",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "orders",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "seller",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "_bytes",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_start",
+						"type": "uint256"
+					}
+				],
+				"name": "toUint256",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Market_start.sol": "Market"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Market_start.sol": {
+			"keccak256": "0xb606170e5b7f96f48442ace600f8d72caffcb69ab5cfbf01131e09e162246673",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b70fe3ccfd2051deec6a0e32535698778a9952c3efa35a5ce7f72b5d173ff83d",
+				"dweb:/ipfs/QmU8wLWLQehFknxwaWCxp7g2iqrzbqiBaaTdBbp5jnetm5"
+			]
+		},
+		"interfaces/IERC165.sol": {
+			"keccak256": "0x2c60114546af66d8a830508aeaa7ee3347270042d0b7b3ae3254a6ffe18872df",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0b288fd4be2d77c4e675da9fb7707faf32da6366b4f2106fb9757dfa2f7dba5a",
+				"dweb:/ipfs/QmccP7tARNqSvX367ew8Ssepq3uT8Jeyz9HVvUjqLJCy9m"
+			]
+		},
+		"interfaces/IERC20.sol": {
+			"keccak256": "0x1ccb9525991ed8ab8e01339a46b1a2769da8be20297379194c9c0606bc75852f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2a7580ec72f8d9257609616f87505f4d9e7e9a3bfffa549b890047294e4fa90d",
+				"dweb:/ipfs/QmahZABg64JjBURB5mjvHP59x6hdvkxVCk8SEdRvib6ErE"
+			]
+		},
+		"interfaces/IERC721.sol": {
+			"keccak256": "0x7ebd96318c457a7a539dcd404b0c5e22efa1d6a6982669896d83f0be959b6bef",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://baf9824a303d095e9c6e6fb9a567b3cf62a24c555951d18ac58c4d055ff47afc",
+				"dweb:/ipfs/QmNSjf9aro5m5Wxcv3zJdDwMPu546VA6z3PP4Q9naEGwLq"
+			]
+		},
+		"interfaces/IERC721Metadata.sol": {
+			"keccak256": "0xc84a2151890428ae96d3128443afd1bcee9ac744b547385347bd2335e2594727",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://aa50740f791cdee16e4bf76b3d9887930a598995b66a67d55ae48a38e0781da0",
+				"dweb:/ipfs/QmSwbhe9YNDYiv6486NGvPKdjc31HRe4o245H7tqbEkakm"
+			]
+		},
+		"interfaces/IERC721Receiver.sol": {
+			"keccak256": "0x9055b97138f9416e72e7c999fc0e4162f6f1b6359914ad45329dec48a0dd2e6d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ef329ce098cac715c16324a88b1be2b4767eb0682bf308e0b25e5eaeb3bda10d",
+				"dweb:/ipfs/QmWSF3UqLatSULxLozpgRWgZrR56vbqRtBXbwKQC6gVgip"
+			]
+		},
+		"tokens/ERC20.sol": {
+			"keccak256": "0x87ddd711f3dfd5f0c9dfe7a3af11fafcba597b0d92693871f1d15a631c4c16b4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b81eacea196706f69d428bd6298cb8b6bea3ec715a496b1773ddc70a1e28f776",
+				"dweb:/ipfs/QmX9gs28qdY22drXqKj2uTBKNtLdSRLtTVHhj6p2wVkaDB"
+			]
+		},
+		"tokens/ERC721.sol": {
+			"keccak256": "0x3489e335cf31d98f0aad0878f938d53532fd4a8555ff0a155ddc1b6c57e06669",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://cc87924169586ed6268a8b217e7d7bf4bef3cb85120b5be8c2491f035339a923",
+				"dweb:/ipfs/QmU4ykzfN4hHkwxvUAxZyZhiZE7zRQT3T69JbzpbK9wdC9"
+			]
+		},
+		"utils/Address.sol": {
+			"keccak256": "0x21e263b55fe996b1f447462b9b5f4d123cbc6387febdd3ffdb8fe9e785fa1bae",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4da1da665f56a9b41dbf2a489655e900f334968dd7ff3446341357ab30f942f6",
+				"dweb:/ipfs/QmQw93gPoT6CCKmAm78dAsdwtUNghLTz9sDVQF3bdwP1nq"
+			]
+		},
+		"utils/SafeMath.sol": {
+			"keccak256": "0xea65687f7ab13e47d6125219aa8352aac0686d35fbf6c305ca3cab0a561d6234",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5494f3a2b9d75a75ee77e1fc328e7666d49b324032982849781a807a74244a97",
+				"dweb:/ipfs/QmRYHjZLYg8K4qyztcgECuneQJFSTARChhKJ637f9HtsM9"
+			]
+		},
+		"utils/String.sol": {
+			"keccak256": "0xbbc7f77ef077c09e5b4f459e1b40f47ab8ee49a313c9f48a30a135e5a067e7fd",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2df6d37812b48481cf148ca3fc9b1072684bf35bacbc2272ea21708a491e6955",
+				"dweb:/ipfs/QmNmNk6WqGNEegC5S7dv3cpZiW9bosRSTrJzErbRHzUVav"
+			]
+		}
+	},
+	"version": 1
+}
